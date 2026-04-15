@@ -1,0 +1,288 @@
+---
+// ── Hero image: save your photo as "hero.jpg" inside the /public/images/ folder ──
+const heroImage = "/images/hero.jpg";
+---
+
+<section class="hero" aria-label="Introduction">
+
+  <!-- Background image layer — swap src in /public/images/ -->
+  <div class="hero__bg" aria-hidden="true">
+    <div class="hero__placeholder-bg"></div>
+    <img src={heroImage} alt="Vista aérea del relleno sanitario Cerro Patacón, Ciudad de Panamá" class="hero__img" />
+    <!-- Organic blob decorations on top of the photo -->
+    <div class="hero__blob hero__blob--1"></div>
+    <div class="hero__blob hero__blob--2"></div>
+    <div class="hero__overlay"></div>
+  </div>
+
+  <!-- Wave divider at the very bottom of the hero — organic transition to white -->
+  <div class="hero__wave" aria-hidden="true">
+    <svg viewBox="0 0 1440 90" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,45 C180,90 360,0 540,45 C720,90 900,10 1080,50 C1260,85 1350,30 1440,45 L1440,90 L0,90 Z" fill="#f0ebe2"/>
+    </svg>
+  </div>
+
+  <p class="hero__photo-credit">Foto: MiAmbiente Panamá</p>
+
+  <div class="container hero__content">
+
+    <h1 class="hero__title">
+      Cerro Patacón: <br />
+      <em>Entendiendo el problema para construir la solución</em>
+    </h1>
+
+    <p class="hero__byline">por Alexandra Cohen</p>
+
+    <p class="hero__subtitle">
+      Cerro Patacón es, a la vez, el síntoma de un problema y el punto de partida de su solución.
+      Aquí viven personas, funciona un ecosistema, y en él descansa una pregunta urgente:
+      ¿cómo maneja una ciudad lo que consume y desecha?
+    </p>
+
+    <div class="hero__cta-group">
+      <a href="#relleno" class="btn btn--primary">Leer la historia</a>
+      <a href="#stats" class="btn btn--ghost">Ver los datos</a>
+    </div>
+
+    <div class="hero__scroll-hint" aria-hidden="true">
+      <span>Explorar</span>
+      <svg width="16" height="24" viewBox="0 0 16 24" fill="none">
+        <rect x="1" y="1" width="14" height="22" rx="7" stroke="currentColor" stroke-width="1.5"/>
+        <circle class="scroll-dot" cx="8" cy="7" r="2.5" fill="currentColor"/>
+      </svg>
+    </div>
+  </div>
+
+</section>
+
+
+<style>
+  /* ── Hero (keeps dark forest green for visual impact) ── */
+  .hero {
+    position: relative;
+    min-height: 100svh;
+    display: flex;
+    align-items: flex-end;
+    padding-top: 70px;
+    padding-bottom: clamp(4rem, 10vw, 7rem);
+    overflow: hidden;
+  }
+
+  .hero__bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+
+  .hero__placeholder-bg {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(160deg, #0c2618 0%, #0f3320 40%, #091e0e 100%);
+  }
+
+  /* Organic blob decorations — soft glowing shapes inspired by FORRA */
+  .hero__blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(70px);
+    pointer-events: none;
+  }
+
+  .hero__blob--1 {
+    width: 55vw;
+    height: 55vw;
+    max-width: 700px;
+    max-height: 700px;
+    background: radial-gradient(circle, rgba(46, 125, 82, 0.45) 0%, transparent 70%);
+    top: -15%;
+    right: -10%;
+  }
+
+  .hero__blob--2 {
+    width: 40vw;
+    height: 40vw;
+    max-width: 500px;
+    max-height: 500px;
+    background: radial-gradient(circle, rgba(74, 184, 204, 0.2) 0%, transparent 70%);
+    bottom: 15%;
+    left: 5%;
+  }
+
+  .hero__blob--3 {
+    width: 30vw;
+    height: 30vw;
+    max-width: 380px;
+    max-height: 380px;
+    background: radial-gradient(circle, rgba(111, 207, 151, 0.15) 0%, transparent 70%);
+    top: 30%;
+    left: 40%;
+  }
+
+  /* Wave divider */
+  .hero__wave {
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    right: 0;
+    z-index: 3;
+    line-height: 0;
+  }
+
+  .hero__wave svg {
+    width: 100%;
+    height: 90px;
+    display: block;
+  }
+
+  .hero__img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .hero__overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: linear-gradient(
+      to top,
+      rgba(8, 25, 14, 0.95) 0%,
+      rgba(8, 25, 14, 0.6) 45%,
+      rgba(8, 25, 14, 0.25) 100%
+    );
+  }
+
+  .hero__content {
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero__photo-credit {
+    position: absolute;
+    bottom: 100px;
+    right: 1.25rem;
+    z-index: 3;
+    font-size: 0.65rem;
+    color: rgba(255, 255, 255, 0.4);
+    letter-spacing: 0.05em;
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+  }
+
+  /* Section label inside hero is light blue (readable on dark) */
+  .hero__label {
+    font-family: var(--font-body);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--color-accent-2);
+    margin-bottom: 1rem;
+  }
+
+  .hero__title {
+    font-family: var(--font-display);
+    font-size: clamp(3.5rem, 12vw, 8rem);
+    font-weight: 900;
+    line-height: 1;
+    color: #ffffff;
+    margin-block: 1rem 1.5rem;
+  }
+
+  .hero__title em {
+    font-style: italic;
+    color: #5bbf84;
+    font-size: 0.55em;
+  }
+
+  .hero__byline {
+    font-size: 0.82rem;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    color: rgba(255, 255, 255, 0.55);
+    margin-bottom: 1.5rem;
+    margin-top: -0.75rem;
+  }
+
+  .hero__subtitle {
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    color: rgba(255, 255, 255, 0.65);
+    max-width: 60ch;
+    line-height: 1.75;
+    margin-bottom: 2.5rem;
+  }
+
+  .hero__cta-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 4rem;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.75rem 1.75rem;
+    border-radius: 50px;   /* pill shape — friendlier feel */
+    font-size: 0.88rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-decoration: none;
+    transition: all 0.2s;
+    cursor: pointer;
+    border: 1.5px solid transparent;
+  }
+
+  .btn--primary {
+    background: var(--color-accent);
+    color: #ffffff;
+    border-color: var(--color-accent);
+  }
+
+  .btn--primary:hover {
+    background: #26694a;
+    border-color: #26694a;
+    text-decoration: none;
+  }
+
+  .btn--ghost {
+    background: transparent;
+    color: #ffffff;
+    border-color: rgba(74, 184, 204, 0.55);
+  }
+
+  .btn--ghost:hover {
+    border-color: var(--color-accent-2);
+    background: rgba(74, 184, 204, 0.12);
+    color: var(--color-accent-2);
+    text-decoration: none;
+  }
+
+  .hero__scroll-hint {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(74, 184, 204, 0.7);
+  }
+
+  .scroll-dot {
+    animation: scroll-bounce 1.8s ease-in-out infinite;
+  }
+
+  @keyframes scroll-bounce {
+    0%, 100% { transform: translateY(0); }
+    50%       { transform: translateY(8px); }
+  }
+
+  @media (max-width: 768px) {
+    .hero__title {
+      font-size: clamp(2.5rem, 10vw, 3.5rem);
+    }
+  }
+</style>

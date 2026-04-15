@@ -1,0 +1,300 @@
+---
+// ── Update these numbers with your real research data ──
+const stats = [
+  {
+    value: "2,500+",
+    unit: "ton/día",
+    label: "Residuos recibidos a diario",
+    description:
+      "Cerro Patacón recibe más de 2,500 toneladas de residuos sólidos cada día provenientes de Ciudad de Panamá y sus alrededores.",
+  },
+  {
+    value: "1986",
+    unit: "año de apertura",
+    label: "Casi 4 décadas en operación",
+    description:
+      "El relleno lleva activo cerca de 40 años, superando ampliamente su vida útil originalmente diseñada.",
+  },
+  {
+    value: "≈ 130",
+    unit: "hectáreas",
+    label: "Superficie total",
+    description:
+      "El relleno ocupa aproximadamente 130 hectáreas — un área mayor que muchos barrios urbanos de la ciudad.",
+  },
+];
+---
+
+<section class="stats" id="stats" aria-label="Key statistics">
+  <!-- Organic wave top divider -->
+  <div class="stats__wave-top" aria-hidden="true">
+    <svg viewBox="0 0 1440 70" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,35 C240,70 480,0 720,35 C960,70 1200,10 1440,35 L1440,0 L0,0 Z" fill="#f0ebe2"/>
+    </svg>
+  </div>
+  <div class="container">
+    <p class="section-label">Los Datos</p>
+    <hr class="divider" />
+
+    <div class="stats__header">
+      <h2 class="section-title">La dimensión del problema</h2>
+    </div>
+
+    <div class="stats__content-row">
+      <div class="stats__content-text">
+        <p class="stats__body">
+          En el caso de Cerro Patacón, las condiciones requeridas para mantener un relleno sanitario no se cumplieron de manera adecuada durante años. El sitio recibió volúmenes de basura que superaron su capacidad, lo que provocó la formación de montañas de residuos demasiado altas e inestables. El manejo y drenaje de los lixiviados fue insuficiente, permitiendo que los líquidos se acumularan dentro de la masa de basura y en el entorno, aumentando su peso y reduciendo su estabilidad, mientras que las lluvias intensas agravaron esta saturación y favorecieron deslizamientos. A esto se suma un problema recurrente de incendios, muchos de ellos provocados por la acumulación de gases como el metano, las altas temperaturas dentro de los residuos o la falta de cobertura y control adecuados. Estos fuegos liberan humo tóxico y partículas contaminantes que deterioran la calidad del aire y afectan la salud de las comunidades cercanas, además de producir problemas ambientales de gran escala. Al día de hoy, la mitad del vertedero se encuentra afectado.
+        </p>
+        <div class="stats__ref">
+          <a href="https://www.connectas.org/especiales/salud-sucia-del-cerro-patacon/" target="_blank" rel="noopener noreferrer">connectas.org — La salud sucia del Cerro Patacón</a>
+        </div>
+      </div>
+      <div class="stats__content-figure">
+        <figure class="stats__content-image">
+          <img src="/images/dimension-problema.jpg" alt="Vista de Cerro Patacón" class="stats__photo" />
+        </figure>
+        <p class="stats__photo-credit">Foto: Destino Panamá</p>
+      </div>
+    </div>
+
+    <div class="stats__grid">
+      {stats.map((stat) => (
+        <article class="stat-card">
+          <div class="stat-card__icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <circle cx="10" cy="10" r="9" stroke="currentColor" stroke-width="1.5"/>
+              <path d="M10 6v4l3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="stat-card__value">
+            {stat.value}
+            <span class="stat-card__unit">{stat.unit}</span>
+          </div>
+          <h3 class="stat-card__label">{stat.label}</h3>
+          <p class="stat-card__desc">{stat.description}</p>
+        </article>
+      ))}
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .stats__wave-top {
+    line-height: 0;
+    margin-bottom: -2px;
+  }
+
+  .stats__wave-top svg {
+    width: 100%;
+    height: 70px;
+    display: block;
+  }
+
+  .stats {
+    padding-top: 0;
+    padding-bottom: var(--section-pad);
+    background: #e4ece0;
+  }
+
+  .stats__header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    align-items: end;
+    margin-bottom: clamp(2.5rem, 6vw, 4rem);
+  }
+
+  .stats__content-row {
+    display: grid;
+    grid-template-columns: 1fr 380px;
+    gap: 2.5rem;
+    align-items: stretch;
+    margin-bottom: clamp(2.5rem, 6vw, 4rem);
+  }
+
+  .stats__content-text .stats__body {
+    margin-bottom: 1rem;
+  }
+
+  .stats__content-text .stats__ref {
+    margin-bottom: 0;
+  }
+
+  .stats__content-figure {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .stats__content-image {
+    margin: 0;
+    overflow: hidden;
+    border-radius: 12px;
+    border: 1.5px solid var(--color-border);
+    flex: 1;
+    min-height: 0;
+  }
+
+  .stats__photo {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+  }
+
+  .stats__photo-credit {
+    font-size: 0.7rem;
+    color: var(--color-muted);
+    opacity: 0.6;
+    margin-top: 0.5rem;
+    flex-shrink: 0;
+    text-align: right;
+  }
+
+  @media (max-width: 800px) {
+    .stats__content-row {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* ── Stat cards ── */
+  .stats__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1rem;
+    margin-bottom: clamp(3rem, 6vw, 5rem);
+  }
+
+  .stat-card {
+    background: var(--color-surface);
+    border: 1.5px solid var(--color-border);
+    border-top: 3px solid var(--color-accent);
+    border-radius: 12px;
+    padding: clamp(1.5rem, 4vw, 2.2rem);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+    transition: box-shadow 0.2s, transform 0.2s, border-color 0.2s;
+  }
+
+  .stat-card:hover {
+    box-shadow: 0 8px 32px rgba(74, 184, 204, 0.15);
+    transform: translateY(-3px);
+    border-color: var(--color-accent-2);
+  }
+
+  /* Alternate cards get a blue top accent stripe */
+
+  .stat-card__icon {
+    color: var(--color-accent-2);
+    margin-bottom: 1rem;
+  }
+
+  .stat-card__value {
+    font-family: var(--font-display);
+    font-size: clamp(2.5rem, 5vw, 3.8rem);
+    font-weight: 900;
+    color: var(--color-accent);
+    line-height: 1;
+    margin-bottom: 0.4rem;
+    display: flex;
+    align-items: baseline;
+    gap: 0.4rem;
+    flex-wrap: wrap;
+  }
+
+  .stat-card__unit {
+    font-family: var(--font-body);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-accent-2);
+  }
+
+  .stat-card__label {
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--color-text);
+    margin-block: 0.75rem 0.5rem;
+  }
+
+  .stat-card__desc {
+    font-size: 0.83rem;
+    color: var(--color-muted);
+    line-height: 1.65;
+  }
+
+  /* ── Body paragraph ── */
+  .stats__body {
+    font-size: 1.05rem;
+    color: var(--color-muted);
+    line-height: 1.85;
+    max-width: 72ch;
+    margin-bottom: clamp(2.5rem, 6vw, 4rem);
+  }
+
+  /* ── Reference link ── */
+  .stats__ref {
+    display: inline-flex;
+    margin-top: 0.6rem;
+    margin-bottom: clamp(2.5rem, 6vw, 4rem);
+    border: 1px solid var(--color-border);
+    border-top: 3px solid var(--color-accent);
+    border-radius: 8px;
+    padding: 0.6rem 1rem;
+    background: rgba(0,0,0,0.03);
+  }
+
+  .stats__ref a {
+    font-size: 0.72rem;
+    color: var(--color-muted);
+    opacity: 0.65;
+    text-decoration: none;
+    border-bottom: 1px solid currentColor;
+    transition: opacity 0.2s;
+  }
+
+  .stats__ref a:hover {
+    opacity: 1;
+  }
+
+  /* ── Chart area ── */
+  .stats__chart-area {
+    margin-top: 1rem;
+  }
+
+  .stats__chart-label {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--color-muted);
+    margin-bottom: 1rem;
+  }
+
+  .stats__chart-placeholder {
+    border: 2px dashed rgba(74, 184, 204, 0.4);
+    border-radius: 12px;
+    padding: 4rem 2rem;
+    text-align: center;
+    background: var(--color-surface);
+    color: var(--color-muted);
+    font-size: 0.9rem;
+    line-height: 2;
+  }
+
+  .stats__chart-placeholder-icon {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .stats__chart-placeholder-sub {
+    font-size: 0.78rem;
+    color: var(--color-border);
+  }
+
+  @media (max-width: 640px) {
+    .stats__header {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

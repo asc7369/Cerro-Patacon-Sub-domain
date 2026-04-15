@@ -1,0 +1,106 @@
+---
+const year = new Date().getFullYear();
+---
+
+<footer class="footer" aria-label="Site footer">
+  <div class="container footer__inner">
+    <div class="footer__brand">
+      <p class="footer__logo">
+        <span class="footer__logo-accent">Cerro</span> Patacón
+      </p>
+    </div>
+
+    <div class="footer__meta">
+      <div class="footer__author">
+        <img src="/images/LOGOALEXANDRACOHEN.svg" alt="Alexandra Cohen" class="footer__author-logo" width="120" height="120" />
+        <p class="footer__credit">
+          Investigación, redacción y construcción de página web por <strong>Alexandra Cohen</strong> · {year}
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer__bar">
+    <div class="container">
+      <p>© {year} · Solo para uso académico</p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    background: var(--color-hero-bg);
+    border-top: 3px solid var(--color-accent-2);
+    padding-top: clamp(3rem, 6vw, 5rem);
+  }
+
+  .footer__inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    padding-bottom: 3rem;
+    align-items: center;
+  }
+
+  .footer__logo {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 0.5rem;
+  }
+
+  .footer__logo-accent {
+    color: var(--color-accent-2);
+  }
+
+  .footer__tagline {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.5);
+    max-width: 38ch;
+    line-height: 1.7;
+  }
+
+  .footer__author {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0.15rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .footer__author-logo {
+    flex-shrink: 0;
+    border-radius: 50%;
+    opacity: 0.9;
+  }
+
+  .footer__credit {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.85);
+  }
+
+  .footer__credit strong {
+    color: #ffffff;
+  }
+
+  .footer__note {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.4);
+    line-height: 1.7;
+  }
+
+  .footer__bar {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-block: 1.25rem;
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.3);
+  }
+
+  @media (max-width: 640px) {
+    .footer__inner {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+  }
+</style>

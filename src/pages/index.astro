@@ -1,0 +1,22 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Hero from '../components/Hero.astro';
+import Tabs from '../components/Tabs.astro';
+import Stats from '../components/Stats.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout
+  title="Cerro Patacón — Alexandra Cohen"
+  description="An investigative look at Panama City's only sanitary landfill and the communities living in its shadow."
+>
+  <Nav />
+  <main>
+    <Hero />
+    <Tabs start={0} end={1} />
+    <Stats />
+    <Tabs start={1} />
+  </main>
+  <Footer />
+</Layout>

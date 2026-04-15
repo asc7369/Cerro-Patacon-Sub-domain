@@ -1,0 +1,787 @@
+---
+const { start = 0, end } = Astro.props;
+const sections = [
+  {
+    id: "relleno",
+    bg: "#f0ebe2",
+    label: "¿Qué es un relleno sanitario?",
+    heading: "¿Qué es un relleno sanitario?",
+    body: `Un relleno sanitario es una infraestructura diseñada para disponer los residuos sólidos de forma controlada y reducir su impacto en el ambiente y la salud. Para construirlo, primero se prepara el terreno, que puede ser un área excavada o un espacio delimitado donde la basura se deposita de manera organizada. El fondo se recubre con materiales impermeables, como capas de arcilla o geomembranas, para evitar que los lixiviados se filtren al suelo o hacia aguas subterráneas. Luego, los residuos se colocan en capas, se compactan con maquinaria pesada para reducir su volumen y dar estabilidad, y se cubren periódicamente con tierra para controlar olores, plagas y el riesgo de incendios. El sistema también incluye tuberías para recolectar y tratar los lixiviados, así como conductos para liberar o capturar los gases, principalmente metano, que se generan durante la descomposición de la materia orgánica. El buen funcionamiento de un relleno sanitario depende del manejo técnico diario, el control del agua y los líquidos internos, y del respeto a la capacidad máxima para la que fue diseñado.`,
+    sources: [
+      { label: "¿Qué es un relleno sanitario? — ResearchGate", url: "https://www.researchgate.net/publication/319624681_Que_es_un_relleno_sanitario" },
+      { label: "¿Cómo funciona un relleno sanitario? — Innova", url: "https://innova.com.pe/como-funciona-un-relleno-sanitario/" },
+    ],
+    note: "Agrega aquí más información de tu investigación."
+  },
+  {
+    id: "ambiental",
+    bg: "#dce6d8",
+    label: "Efectos ambientales",
+    heading: "Efectos ambientales",
+    body: `Según Ovil Moreno, administrador general de la AAUD, las operaciones del relleno presentan tres pasivos ambientales críticos que afectan directamente el aire, el agua y el suelo de la región. El primero son los lixiviados: un derrumbe dañó las tinas de oxidación que trataban los líquidos que se filtran a través de la basura. Actualmente, estos lixiviados se vierten sin control hacia los afluentes y ríos cercanos al relleno. Según el Ministerio de Ambiente, esta contaminación no se limita al entorno inmediato: los lixiviados han alcanzado aguas superficiales y subterráneas de la cuenca baja de la capital, cuyas aguas desembocan en el Canal de Panamá.`,
+    extra: `El segundo problema es el gas metano. Los incendios ocurridos hace tres años destruyeron por completo el sistema de captación de este gas, que ahora escapa libremente a la atmósfera. Un estudio publicado en <em>Science of the Total Environment</em> estimó que para 2022, Cerro Patacón generaría aproximadamente el 45 % del metano total de Panamá, convirtiéndolo en una de las mayores fuentes individuales de gases de efecto invernadero del país. El tercer problema es el pasivo de llantas: el relleno recibe aproximadamente 200 toneladas mensuales de llantas, con más de 50,000 expuestas en la superficie y millones más enterradas, lo que representa un riesgo permanente de incendios y contaminación del suelo.`,
+    extra2: `En 2021, el ministro de Ambiente Milciades Concepción calificó a Cerro Patacón como un "desastre ambiental, sanitario y de imagen para el país". Estudios ambientales estiman que el daño ecológico del vertedero se extiende sobre aproximadamente 9,000 hectáreas — un área 68 veces mayor que las 130 hectáreas que ocupa el relleno —, afectando la calidad del aire en un radio de varios kilómetros, contaminando suelos y degradando ecosistemas acuáticos que dependen de los ríos y afluentes de la zona.`,
+    highlights: [
+      { value: "~9,000", unit: "hectáreas", label: "Área de impacto ambiental — 68 veces la superficie del relleno", source: { label: "Forbes Centroamérica (2021)", url: "https://forbescentroamerica.com/2021/06/18/cerro-patacon-vertedero-de-panama-es-un-desastre-ambiental" } },
+      { value: "45%", unit: "del metano nacional", label: "Generado por un solo vertedero, según estimaciones científicas", source: { label: "Torrente-Velásquez et al. (2020) — Science of the Total Environment", url: "https://www.sciencedirect.com/science/article/abs/pii/S0048969719359832" } },
+    ],
+    sources: [
+      { label: "Torrente-Velásquez et al. (2020) — Science of the Total Environment", url: "https://www.sciencedirect.com/science/article/abs/pii/S0048969719359832" },
+      { label: "Forbes Centroamérica (2021) — Cerro Patacón: desastre ambiental", url: "https://forbescentroamerica.com/2021/06/18/cerro-patacon-vertedero-de-panama-es-un-desastre-ambiental" },
+    ],
+    note: "Fuentes: Entrevista con Ovil Moreno (AAUD) por Alexandra Cohen; Ministerio de Ambiente de Panamá; Torrente-Velásquez et al. (2020), Science of the Total Environment; Forbes Centroamérica (2021)."
+  },
+  {
+    id: "comunitario",
+    bg: "#cdd9c8",
+    label: "Efectos comunitarios",
+    heading: "Efectos comunitarios",
+    body: `Un estudio científico publicado en <em>Science of the Total Environment</em> estimó que aproximadamente 73,600 personas están expuestas a contaminantes atmosféricos peligrosos emitidos por Cerro Patacón. Entre los contaminantes identificados, el sulfuro de hidrógeno (H₂S) y el benceno (C₆H₆) superan los niveles de referencia considerados seguros para la salud humana, mientras que el diclorometano (CH₂Cl₂) presenta las emisiones más altas en volumen. Estos compuestos se asocian con problemas respiratorios crónicos, irritación de las vías aéreas, dolores de cabeza y un mayor riesgo de enfermedades a largo plazo.`,
+    extra: `A nivel comunitario, una investigación de la Universidad Tecnológica de Panamá reveló que el 87 % de los residentes encuestados en comunidades aledañas reconoce los impactos negativos del vertedero sobre el ambiente y la salud. Las comunidades más afectadas incluyen sectores de San Miguelito (Amelia Denis de Icaza, Belisario Porras, Rufina Alfaro), además de Ancón, Clayton y áreas de Cárdenas. Los encuestados coinciden en que la situación es preocupante y alarmante: la administración inadecuada del vertedero ha permitido que sea un foco de proliferación de enfermedades, infestación de vectores, olores persistentes y conflictos entre las comunidades y las autoridades.`,
+    extra2: `El monitoreo de calidad de agua realizado por el Ministerio de Ambiente (2018–2019) en la Cantera Cerro Patacón, el Puente Río Mocambo y el Puente Río Cárdenas arrojó que los niveles de coliformes fecales superan hasta 100 veces la norma permitida. Los nitratos, la demanda bioquímica de oxígeno y la turbidez también exceden los límites establecidos, lo que confirma que estas aguas — de las que dependen comunidades cercanas — están altamente contaminadas.`,
+    highlights: [
+      { value: "73,600", unit: "personas expuestas", label: "A contaminantes atmosféricos peligrosos emitidos por el vertedero", source: { label: "Torrente-Velásquez et al. (2020) — Science of the Total Environment", url: "https://www.sciencedirect.com/science/article/abs/pii/S0048969719359832" } },
+      { value: "96%", unit: "impactos negativos", label: "Según la Matriz de Leopold, solo el 4 % de las interacciones del vertedero son positivas", source: { label: "Murillo (2021) — Comunidades de Cerro Patacón, UTP", url: "https://up-rid.up.ac.pa/6563/2/migdaris_murillo.pdf" } },
+    ],
+    note: "Fuentes: Torrente-Velásquez et al. (2020) — Science of the Total Environment; Murillo (2021), Universidad Tecnológica de Panamá; Ministerio de Ambiente (ANAM/MiAmbiente), monitoreo 2018–2019."
+  },
+  {
+    id: "pasando",
+    bg: "#bfcfba",
+    label: "¿Qué está pasando?",
+    heading: "¿Qué está pasando?",
+    body: `Cerro Patacón opera hoy bajo una administración en transición y con una infraestructura en deterioro crítico. Desde marzo de 2023, la Autoridad de Aseo Urbano y Domiciliario (AAUD) asumió el control del relleno tras el vencimiento del contrato con la empresa Urbaser-Plotosa, heredando incendios que destruyeron el sistema de captación de gas metano, que hoy escapa libremente a la atmósfera, un deslave en la Etapa I y un sistema de lixiviados gravemente dañado: una inspección realizada en agosto de 2025 confirmó que ninguna caja de bombeo es utilizable y que los líquidos contaminantes fluyen por canales de tierra sin impermeabilización, con riesgo directo de descarga a afluentes cercanos.`,
+    extra: `En lo inmediato, tres consorcios compitieron en septiembre de 2025 por un contrato de $5 millones para construir la nueva Etapa IV, proyectada para entrar en operación a finales de 2026. El cierre definitivo del relleno no es viable por el momento debido a los procesos de asentamiento del terreno, por lo que la AAUD trabaja en una cobertura de preclausura como solución de transición para estabilizar las áreas inactivas y habilitar el sistema de captación de biogás y lixiviados.`,
+    note: "Fuentes: AAUD (2025); En Segundos, septiembre 2025; Panamá América, octubre 2025.",
+    photo: { src: "/images/pasando.jpg", alt: "Cerro Patacón podría transformarse en planta procesadora", url: "https://www.panamaamerica.com.pa/sociedad/cerro-patacon-podria-transformarse-en-una-planta-procesadora-1233024/amp", label: "Panamá América" }
+  },
+  {
+    id: "prevencion",
+    bg: "#b0c4ab",
+    label: "Futura prevención / planes de acción",
+    heading: "Futura prevención y planes de acción",
+    body: `A mediano plazo, el administrador Ovil Moreno impulsa alianzas con Corea del Sur y Japón (países a los que se les presentaron las problemáticas del cerro en igualdad de condiciones) con la intención de entregar el manejo completo del relleno a empresas de uno de estos gobiernos. También se adelanta un plan piloto de compostaje para convertir la fracción orgánica en abono, y se prepara una campaña nacional de separación en la fuente, reconociendo que es un proceso largo: Corea comenzó en 1992 y Japón en 1989.`,
+    extra: `El objetivo a largo plazo es una economía circular en la que todo lo que llegue al cerro sea procesado o transformado en energía, reduciendo a menos del 10% lo que se confina definitivamente. Sobre el futuro del sitio, Moreno es claro: el cerro no debe moverse. Trasladarlo a otro lugar, como Chepo, significaría desviar recursos y dejar Patacón contaminado y abandonado. La meta es remediarlo en su ubicación actual en un horizonte de 12 a 15 años, para luego reutilizar ese terreno — como ya ocurre en otros países — en algo completamente distinto.`,
+    note: "Fuente: Entrevista con Ovil Moreno, Administrador General de la AAUD."
+  },
+  {
+    id: "accion",
+    bg: "#a2b99c",
+    label: "Acción ciudadana",
+    heading: "Acción ciudadana",
+    body: `Organizaciones comunitarias y ambientales han documentado el impacto del relleno durante años.
+           Los ciudadanos pueden contribuir reduciendo su generación de residuos, separando materiales reciclables,
+           exigiendo políticas públicas de gestión de residuos y apoyando a las comunidades afectadas.
+           La presión ciudadana ha sido clave para que el tema llegue a la agenda política. A continuación, algunos enlaces a organizaciones que trabajan por el ambiente panameño — para quienes quieran aprender más o involucrarse.`,
+    disclaimer: "Los logos e identidades visuales son propiedad de sus respectivas organizaciones. Su uso en este sitio es meramente referencial; no existe ningún tipo de afiliación, patrocinio ni respaldo entre estas organizaciones y este proyecto.",
+    note: ""
+  },
+];
+---
+
+<div class="topics">
+  {sections.slice(start, end).map((s, i) => (
+    <section class="topic" id={s.id} aria-label={s.label} style={`background: ${s.bg};`}>
+      <div class="container topic__inner">
+
+        <div class="topic__content">
+          {s.id === "comunitario" && (
+            <div class="topic__figures">
+              <figure class="topic__figure">
+                <img src="/images/comunidades.png" alt="Comunidades aledañas a Cerro Patacón" class="topic__figure-img" />
+                <figcaption class="topic__figure-caption">
+                  Fuente: <a href="https://upinforma.com/nuevo/info.php?cat=noticias&id=10865" target="_blank" rel="noopener noreferrer">UP Informa</a>
+                </figcaption>
+              </figure>
+              <figure class="topic__figure topic__figure--second">
+                <img src="/images/comunidades2.jpg" alt="Comunidades aledañas a Cerro Patacón" class="topic__figure-img" />
+                <figcaption class="topic__figure-caption">
+                  Fuente: <a href="https://www.connectas.org/especiales/salud-sucia-del-cerro-patacon/" target="_blank" rel="noopener noreferrer">Connectas</a>
+                </figcaption>
+              </figure>
+            </div>
+          )}
+
+          {s.id === "relleno" && (
+            <aside class="topic__glossary">
+              <p class="topic__glossary-title">Glosario</p>
+              <dl>
+                <dt>Lixiviado</dt>
+                <dd>Líquido contaminante que se produce cuando el agua de lluvia se filtra a través de los residuos en descomposición, arrastrando sustancias tóxicas.</dd>
+                <dt>Metano</dt>
+                <dd>Gas de efecto invernadero generado por la descomposición de materia orgánica en condiciones anaeróbicas (sin oxígeno).</dd>
+              </dl>
+            </aside>
+          )}
+
+
+          {/* Ambiental: two-column layout with text left, interview sidebar right */}
+          {s.id === "ambiental" ? (
+            <div class="topic__two-col">
+              <div class="topic__col-text">
+                <h2 class="section-title">{s.heading}</h2>
+                <p class="topic__body" set:html={s.body} />
+                {s.extra && <p class="topic__body" set:html={s.extra} />}
+
+                <p class="topic__note">
+                  <svg width="13" height="13" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                    <circle cx="7" cy="7" r="6" stroke="currentColor" stroke-width="1.3"/>
+                    <path d="M7 6v4M7 4.5v.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+                  </svg>
+                  {s.note}
+                </p>
+
+                {/* Highlight stat cards */}
+                {s.highlights && (
+                  <div class="topic__highlights">
+                    {s.highlights.map((h) => (
+                      <div class="topic__highlight-card">
+                        <span class="topic__highlight-value">{h.value}</span>
+                        <span class="topic__highlight-unit">{h.unit}</span>
+                        <p class="topic__highlight-label">{h.label}</p>
+                        {h.source && (
+                          <a href={h.source.url} target="_blank" rel="noopener noreferrer" class="topic__highlight-source">{h.source.label}</a>
+                        )}
+                      </div>
+                    ))}
+                  </div>
+                )}
+
+              </div>
+              <aside class="topic__col-sidebar">
+                <div class="topic__sidebar-author">
+                  <img src="/images/ovil-moreno.jpg" alt="Ovil Moreno" class="topic__sidebar-photo" />
+                  <p class="topic__sidebar-name">Ovil Moreno</p>
+                  <p class="topic__sidebar-role">Administrador General de la Autoridad de Aseo Urbano y Domiciliario de Panamá (AAUD)</p>
+                </div>
+                <div class="topic__sidebar-quotes">
+                  <blockquote class="topic__sidebar-quote">
+                    <span class="topic__sidebar-qmark">"</span>
+                    Los lixiviados están contaminando afluentes y ríos adyacentes al relleno sanitario. Ese es uno de los problemas álgidos.
+                  </blockquote>
+                  <blockquote class="topic__sidebar-quote">
+                    <span class="topic__sidebar-qmark">"</span>
+                    El gas metano está saliendo libremente a la atmósfera.
+                  </blockquote>
+                  <blockquote class="topic__sidebar-quote">
+                    <span class="topic__sidebar-qmark">"</span>
+                    Hay más de diez millones de llantas enterradas en Cerro Patacón.
+                  </blockquote>
+                </div>
+              </aside>
+            </div>
+          ) : (
+            <>
+              <h2 class="section-title">{s.heading}</h2>
+              {s.id === "prevencion" && (
+                <figure class="topic__full-photo" style="margin-top: 1.5rem; margin-bottom: 2rem; display: flex; flex-direction: column; align-items: center;">
+                  <img src="/images/panama123.jpg" alt="Futura prevención y planes de acción — Cerro Patacón" class="topic__full-photo-img" style="width: auto; max-width: 100%;" />
+                  <figcaption class="topic__figure-caption">
+                    Fuente: <a href="https://globusjourneys.com/tour/south-america/panama/" target="_blank" rel="noopener noreferrer">globusjourneys.com</a>
+                  </figcaption>
+                </figure>
+              )}
+              <p class="topic__body" set:html={s.body} />
+              {s.extra && <p class="topic__body" set:html={s.extra} />}
+              {s.extra2 && <p class="topic__body" set:html={s.extra2} />}
+
+              {s.id === "relleno" && s.sources && (
+                <div class="topic__sources">
+                  {s.sources.map((src) => (
+                    <p><a href={src.url} target="_blank" rel="noopener noreferrer">{src.label}</a></p>
+                  ))}
+                </div>
+              )}
+
+              {s.id !== "relleno" && s.id !== "comunitario" && s.note && (
+                <p class="topic__note">
+                  <svg width="13" height="13" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                    <circle cx="7" cy="7" r="6" stroke="currentColor" stroke-width="1.3"/>
+                    <path d="M7 6v4M7 4.5v.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+                  </svg>
+                  {s.note}
+                </p>
+              )}
+
+              {s.photo && (
+                <figure class="topic__full-photo">
+                  <img src={s.photo.src} alt={s.photo.alt} class="topic__full-photo-img" />
+                  <figcaption class="topic__figure-caption">
+                    Fuente: <a href={s.photo.url} target="_blank" rel="noopener noreferrer">{s.photo.label}</a>
+                  </figcaption>
+                </figure>
+              )}
+            </>
+          )}
+
+          {/* Comunitario: highlights + sources */}
+          {s.id === "comunitario" && s.highlights && (
+            <>
+              <p class="topic__note">
+                <svg width="13" height="13" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                  <circle cx="7" cy="7" r="6" stroke="currentColor" stroke-width="1.3"/>
+                  <path d="M7 6v4M7 4.5v.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+                </svg>
+                {s.note}
+              </p>
+              <div class="topic__highlights">
+                {s.highlights.map((h) => (
+                  <div class="topic__highlight-card">
+                    <span class="topic__highlight-value">{h.value}</span>
+                    <span class="topic__highlight-unit">{h.unit}</span>
+                    <p class="topic__highlight-label">{h.label}</p>
+                    {h.source && (
+                      <a href={h.source.url} target="_blank" rel="noopener noreferrer" class="topic__highlight-source">{h.source.label}</a>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </>
+          )}
+
+          {s.id === "accion" && (
+            <div class="topic__orgs">
+              <a href="https://mareaverdepanama.org" target="_blank" rel="noopener noreferrer" class="topic__org-link">
+                <img src="/images/marea-verde.webp" alt="Marea Verde Panamá" class="topic__org-logo" />
+              </a>
+              <a href="https://www.miambiente.gob.pa" target="_blank" rel="noopener noreferrer" class="topic__org-link">
+                <img src="/images/miambiente.png" alt="Ministerio de Ambiente de Panamá" class="topic__org-logo" />
+              </a>
+              <a href="https://www.aaud.gob.pa" target="_blank" rel="noopener noreferrer" class="topic__org-link">
+                <img src="/images/aaud.png" alt="Autoridad de Aseo Urbano y Domiciliario de Panamá" class="topic__org-logo" />
+              </a>
+              <a href="https://ancon.org/" target="_blank" rel="noopener noreferrer" class="topic__org-link">
+                <img src="/images/ancon.png" alt="ANCON - Asociación Nacional para la Conservación de la Naturaleza" class="topic__org-logo" />
+              </a>
+              <a href="https://ciampanama.org" target="_blank" rel="noopener noreferrer" class="topic__org-link">
+                <img src="/images/ciam.png" alt="CIAM" class="topic__org-logo" />
+              </a>
+            </div>
+          )}
+
+          {s.id === "accion" && s.disclaimer && (
+            <p class="topic__disclaimer">{s.disclaimer}</p>
+          )}
+
+          {s.id === "comunitario" && (
+            <>
+              <aside class="topic__glossary topic__glossary--inline">
+                <p class="topic__glossary-title">Glosario</p>
+                <dl>
+                  <dt>Matriz de Leopold</dt>
+                  <dd>Herramienta de evaluación de impacto ambiental que cruza las acciones de un proyecto con los factores del entorno para medir su magnitud e importancia.</dd>
+                </dl>
+              </aside>
+            </>
+          )}
+
+        </div>
+
+      </div>
+    </section>
+  ))}
+</div>
+
+<style>
+  .topics {
+  }
+
+  .topic {
+    padding-block: clamp(3rem, 8vw, 5.5rem);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .topic:last-child {
+    border-bottom: none;
+  }
+
+  .topic__inner {
+    display: block;
+  }
+
+  /* Content: heading + body */
+  .topic__body {
+    font-size: 1.05rem;
+    color: var(--color-muted);
+    line-height: 1.85;
+    max-width: 68ch;
+    margin-bottom: 2rem;
+  }
+
+  .topic__note {
+    display: inline-flex;
+    align-items: flex-start;
+    gap: 0.45rem;
+    font-size: 0.78rem;
+    font-style: italic;
+    color: var(--color-accent-2);
+    background: rgba(74, 184, 204, 0.07);
+    border: 1px dashed rgba(74, 184, 204, 0.35);
+    border-radius: 6px;
+    padding: 0.6rem 0.9rem;
+  }
+
+  .topic__note svg {
+    flex-shrink: 0;
+    margin-top: 2px;
+    color: var(--color-accent-2);
+  }
+
+  /* ── Sources ── */
+  .topic__sources {
+    margin-top: 2rem;
+    display: inline-flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    border: 1px solid var(--color-border);
+    border-top: 3px solid var(--color-accent);
+    border-radius: 8px;
+    padding: 0.6rem 1rem;
+    background: rgba(0,0,0,0.03);
+  }
+
+  .topic__sources p {
+    margin: 0;
+    font-size: 0.72rem;
+    color: var(--color-muted);
+    opacity: 0.65;
+    line-height: 1.5;
+  }
+
+  .topic__sources a {
+    color: inherit;
+    text-decoration: none;
+    border-bottom: 1px solid currentColor;
+    transition: opacity 0.2s;
+  }
+
+  .topic__sources a:hover {
+    opacity: 1;
+  }
+
+  /* ── Glossary sidebar ── */
+  .topic__glossary {
+    float: right;
+    width: 240px;
+    margin-left: 2.5rem;
+    margin-bottom: 1.5rem;
+    background: var(--color-surface);
+    border: 1.5px solid var(--color-border);
+    border-radius: 12px;
+    padding: 1.25rem 1.5rem;
+  }
+
+  /* ── Org links (accion section) ── */
+  .topic__orgs {
+    margin-top: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    align-items: center;
+  }
+
+  .topic__org-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 160px;
+    transition: opacity 0.2s;
+  }
+
+  .topic__org-link:hover {
+    opacity: 0.75;
+  }
+
+  .topic__org-logo {
+    height: 100px;
+    width: auto;
+    display: block;
+    max-width: 100%;
+  }
+
+  .topic__org-link:first-child .topic__org-logo {
+    height: 130px;
+  }
+
+  .topic__org-link:nth-child(2) {
+    margin-left: -19px;
+  }
+
+  /* ── Disclaimer ── */
+  .topic__disclaimer {
+    margin-top: 1.5rem;
+    font-size: 0.7rem;
+    color: var(--color-muted);
+    opacity: 0.75;
+    line-height: 1.6;
+    max-width: 68ch;
+  }
+
+  /* ── Full-width photo (pasando section) ── */
+  .topic__full-photo {
+    margin-top: 2.5rem;
+  }
+
+  .topic__full-photo-img {
+    width: 100%;
+    border-radius: 10px;
+    display: block;
+    object-fit: cover;
+    max-height: 500px;
+  }
+
+  /* Make pasando and prevencion body text full width */
+  #pasando .topic__body,
+  #prevencion .topic__body {
+    max-width: 100%;
+  }
+
+  /* ── Section figure/image ── */
+  .topic__figures {
+    float: right;
+    width: 260px;
+    margin-left: 2.5rem;
+    margin-top: 6rem;
+  }
+
+  .topic__figure {
+    margin-bottom: 1.25rem;
+  }
+
+  .topic__figure-img {
+    width: 100%;
+    border-radius: 10px;
+    display: block;
+  }
+
+  .topic__figure-caption {
+    font-size: 0.72rem;
+    color: var(--color-muted);
+    opacity: 0.65;
+    margin-top: 0.4rem;
+  }
+
+  .topic__figure-caption a {
+    color: inherit;
+    border-bottom: 1px solid currentColor;
+    text-decoration: none;
+  }
+
+  .topic__figure-caption a:hover {
+    opacity: 1;
+  }
+
+  .topic__glossary--inline {
+    float: none;
+    width: 100%;
+    margin-left: 0;
+    margin-top: 2rem;
+    box-sizing: border-box;
+    background: var(--color-surface);
+    border: 1.5px solid var(--color-border);
+    border-radius: 12px;
+    padding: 1.25rem 1.5rem;
+  }
+
+  .topic__glossary-title {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    margin-bottom: 1rem;
+  }
+
+  .topic__glossary dt {
+    font-weight: 700;
+    font-size: 0.88rem;
+    color: var(--color-text);
+    margin-top: 0.75rem;
+  }
+
+  .topic__glossary dd {
+    font-size: 0.82rem;
+    color: var(--color-muted);
+    line-height: 1.6;
+    margin-left: 0;
+    margin-top: 0.25rem;
+  }
+
+  /* ── Landfill diagram ── */
+  .topic__diagram {
+    margin-top: 2.5rem;
+    background: var(--color-surface);
+    border: 1.5px solid var(--color-border);
+    border-radius: 12px;
+    overflow: hidden;
+    padding: 1.5rem 1.5rem 0.75rem;
+  }
+
+  .topic__diagram svg {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .topic__diagram-caption {
+    text-align: center;
+    font-size: 0.8rem;
+    color: var(--color-muted);
+    padding: 0.5rem 0 0.25rem;
+  }
+
+  /* ── Highlight stat cards (ambiental) ── */
+  .topic__highlights {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .topic__highlight-card {
+    background: var(--color-surface);
+    border: 1.5px solid var(--color-border);
+    border-top: 3px solid var(--color-accent);
+    border-radius: 10px;
+    padding: 1.25rem 1.5rem;
+    transition: box-shadow 0.2s, transform 0.2s;
+  }
+
+  .topic__highlight-card:hover {
+    box-shadow: 0 6px 20px rgba(46, 125, 82, 0.12);
+    transform: translateY(-2px);
+  }
+
+  .topic__highlight-value {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    font-weight: 900;
+    color: var(--color-accent);
+    line-height: 1;
+  }
+
+  .topic__highlight-unit {
+    display: block;
+    font-family: var(--font-body);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-muted);
+    margin-top: 0.3rem;
+    margin-bottom: 0.6rem;
+  }
+
+  .topic__highlight-label {
+    font-size: 0.83rem;
+    color: var(--color-muted);
+    line-height: 1.55;
+  }
+
+  .topic__highlight-source {
+    display: inline-block;
+    margin-top: 0.6rem;
+    font-size: 0.68rem;
+    color: var(--color-muted);
+    opacity: 0.6;
+    text-decoration: none;
+    border-bottom: 1px solid currentColor;
+    transition: opacity 0.2s;
+  }
+
+  .topic__highlight-source:hover {
+    opacity: 1;
+    text-decoration: none;
+  }
+
+  @media (max-width: 600px) {
+    .topic__highlights {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* ── Interview cards inside ambiental / comunitario ── */
+  /* ── Two-column layout for ambiental ── */
+  .topic__two-col {
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    gap: 3rem;
+    align-items: start;
+    margin-right: clamp(-120px, -8vw, -40px);
+  }
+
+  .topic__col-sidebar {
+    position: sticky;
+    top: 90px;
+    background: var(--color-surface);
+    border: 1.5px solid var(--color-border);
+    border-radius: 14px;
+    padding: 1.75rem;
+  }
+
+  .topic__sidebar-author {
+    text-align: center;
+    padding-bottom: 1.25rem;
+    margin-bottom: 1.25rem;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .topic__sidebar-photo {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--color-border);
+    margin-bottom: 0.75rem;
+  }
+
+  .topic__sidebar-name {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: 0.25rem;
+  }
+
+  .topic__sidebar-role {
+    font-size: 0.75rem;
+    color: var(--color-muted);
+    line-height: 1.5;
+  }
+
+  .topic__sidebar-quotes {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .topic__sidebar-quote {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 0.88rem;
+    line-height: 1.55;
+    color: var(--color-text);
+    padding-left: 0.75rem;
+    border-left: 2px solid var(--color-accent);
+  }
+
+  .topic__sidebar-qmark {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    color: var(--color-accent);
+    opacity: 0.4;
+    line-height: 0.5;
+    margin-right: 0.1rem;
+  }
+
+  @media (max-width: 800px) {
+    .topic__two-col {
+      grid-template-columns: 1fr;
+      margin-right: 0;
+    }
+    .topic__col-sidebar {
+      position: static;
+    }
+  }
+
+  /* ── Interview cards for comunitario ── */
+  .topic__interviews {
+    margin-top: 2.5rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .topic__interviews-label {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--color-accent-2);
+    margin-bottom: 1.25rem;
+  }
+
+  .topic__interviews-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .topic__interview-card {
+    background: var(--color-surface);
+    border: 1.5px solid var(--color-border);
+    border-top: 3px solid var(--color-accent);
+    border-radius: 14px;
+    padding: 1.75rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: box-shadow 0.2s, border-color 0.2s, transform 0.2s;
+  }
+
+  .topic__interview-card:hover {
+    box-shadow: 0 6px 24px rgba(74, 184, 204, 0.12);
+    border-color: var(--color-accent-2);
+    transform: translateY(-2px);
+  }
+
+  .topic__quote-mark {
+    font-family: var(--font-display);
+    font-size: 4rem;
+    line-height: 1;
+    color: var(--color-accent-2);
+    opacity: 0.3;
+    margin-bottom: -1.25rem;
+    user-select: none;
+  }
+
+  .topic__quote {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 0.98rem;
+    line-height: 1.65;
+    color: var(--color-text);
+    flex: 1;
+    margin-bottom: 1.5rem;
+  }
+
+  .topic__interview-footer {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .topic__avatar {
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--color-surface-alt);
+    border: 2px solid var(--color-border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--color-accent);
+  }
+
+  .topic__interview-name {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--color-text);
+  }
+
+  .topic__interview-role {
+    font-size: 0.74rem;
+    color: var(--color-muted);
+    margin-top: 0.1rem;
+  }
+
+  @media (max-width: 700px) {
+    .topic__interviews-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

@@ -1,0 +1,229 @@
+---
+// ── Add your interview subjects here ──
+// Replace placeholder text with real quotes, names, and roles as you complete interviews.
+const interviews = [
+  {
+    id: 1,
+    name: "Entrevistado/a 1",
+    role: "Residente local · Sector X",
+    quote:
+      "Pega aquí la cita más poderosa de esta persona. Lo ideal es que tenga entre 2 y 4 oraciones para lograr el mayor impacto en la página.",
+    photo: "/images/portrait-placeholder.jpg", // agrega una foto real en /public/images/
+    hasPhoto: false,
+  },
+  {
+    id: 2,
+    name: "Entrevistado/a 2",
+    role: "Activista ambiental · Nombre de la organización",
+    quote:
+      "Aquí va otra cita significativa. Las mejores son específicas, personales y revelan algo que los datos por sí solos no pueden transmitir.",
+    photo: "/images/portrait-placeholder.jpg",
+    hasPhoto: false,
+  },
+  {
+    id: 3,
+    name: "Entrevistado/a 3",
+    role: "Funcionario/a municipal o experto/a",
+    quote:
+      "Una tercera voz — idealmente de alguien con responsabilidad o autoridad — aporta profundidad y contraste al relato.",
+    photo: "/images/portrait-placeholder.jpg",
+    hasPhoto: false,
+  },
+];
+---
+
+<section class="interviews" id="interviews" aria-label="Voices from the field">
+  <div class="container">
+    <p class="section-label">Voces</p>
+    <hr class="divider" />
+
+    <div class="interviews__header">
+      <h2 class="section-title">Las personas detrás de los números</h2>
+      <p class="section-intro">
+        Detrás de cada estadística hay una persona. Hablamos con residentes, activistas
+        y funcionarios para entender cómo se vive y se siente la crisis desde adentro.
+      </p>
+    </div>
+
+    <div class="interviews__grid">
+      {interviews.map((person, i) => (
+        <article class={`interview-card ${i === 0 ? 'interview-card--featured' : ''}`}>
+          <div class="interview-card__quote-mark" aria-hidden="true">"</div>
+          <blockquote class="interview-card__quote">
+            {person.quote}
+          </blockquote>
+
+          <footer class="interview-card__footer">
+            <div class="interview-card__avatar" aria-hidden="true">
+              {person.hasPhoto
+                ? <img src={person.photo} alt={person.name} class="interview-card__photo" />
+                : <span class="interview-card__initials">
+                    {person.name.split(' ').map((n: string) => n[0]).join('').slice(0,2)}
+                  </span>
+              }
+            </div>
+            <div>
+              <p class="interview-card__name">{person.name}</p>
+              <p class="interview-card__role">{person.role}</p>
+            </div>
+          </footer>
+        </article>
+      ))}
+    </div>
+
+    <!-- Full interview transcripts area (optional) -->
+    <div class="interviews__note">
+      <p>
+        Las entrevistas fueron realizadas en [lugar] entre [rango de fechas].
+        Las transcripciones completas están disponibles bajo solicitud.
+      </p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .interviews {
+    padding-block: var(--section-pad);
+    background: var(--color-bg);
+    border-top: 1px solid var(--color-border);
+  }
+
+  .interviews__header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    align-items: end;
+    margin-bottom: clamp(2.5rem, 6vw, 4rem);
+  }
+
+  /* ── Cards grid ── */
+  .interviews__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+  }
+
+  .interview-card {
+    position: relative;
+    background: var(--color-surface);
+    border: 1.5px solid var(--color-border);
+    border-radius: 16px;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: box-shadow 0.2s, transform 0.2s, border-color 0.2s;
+  }
+
+  .interview-card:hover {
+    box-shadow: 0 8px 32px rgba(74, 184, 204, 0.12);
+    border-color: var(--color-accent-2);
+    transform: translateY(-3px);
+  }
+
+  /* First card is featured with a light blue tint */
+  .interview-card--featured {
+    border-color: rgba(61, 168, 190, 0.4);
+    background: linear-gradient(
+      160deg,
+      rgba(61, 168, 190, 0.06) 0%,
+      var(--color-surface) 60%
+    );
+  }
+
+  .interview-card__quote-mark {
+    font-family: var(--font-display);
+    font-size: 5rem;
+    line-height: 1;
+    color: var(--color-accent);
+    opacity: 0.18;
+    margin-bottom: -1.5rem;
+    user-select: none;
+  }
+
+  .interview-card--featured .interview-card__quote-mark {
+    color: var(--color-accent-2);
+    opacity: 0.35;
+  }
+
+  .interview-card__quote {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: clamp(1rem, 1.8vw, 1.15rem);
+    line-height: 1.65;
+    color: var(--color-text);
+    flex: 1;
+    margin-bottom: 1.75rem;
+  }
+
+  /* Footer: avatar + name */
+  .interview-card__footer {
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .interview-card__avatar {
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--color-surface-alt);
+    border: 2px solid var(--color-border);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .interview-card__photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .interview-card__initials {
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: var(--color-accent);
+  }
+
+  .interview-card__name {
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--color-text);
+  }
+
+  .interview-card__role {
+    font-size: 0.76rem;
+    color: var(--color-muted);
+    margin-top: 0.1rem;
+  }
+
+  /* Note */
+  .interviews__note {
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--color-border);
+    font-size: 0.8rem;
+    color: var(--color-muted);
+    font-style: italic;
+  }
+
+  @media (max-width: 900px) {
+    .interviews__grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .interviews__header {
+      grid-template-columns: 1fr;
+    }
+    .interviews__grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
