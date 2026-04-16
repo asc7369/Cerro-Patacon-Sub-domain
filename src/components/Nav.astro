@@ -11,13 +11,11 @@ const navLinks = [
 
 <nav class="nav" aria-label="Main navigation">
   <div class="container nav__inner">
-    <div class="nav__logo">
-      <a href="https://alexandrasofiacohen.com">
-        <img src="/images/LOGOALEXANDRACOHEN.svg" alt="Alexandra Cohen" class="nav__logo-mark" width="55" height="55" />
+    <div class="nav__left">
+      <a href="https://alexandrasofiacohen.com" class="nav__logo-link">
+        <img src="/images/logo-favicon.svg" alt="Alexandra Cohen" class="nav__logo-mark" />
       </a>
-      <a href="/" class="nav__logo-text">
-        <span class="nav__logo-accent">Cerro</span> Patacón
-      </a>
+      <a href="https://alexandrasofiacohen.com" class="nav__back-home">← Volver al Inicio</a>
     </div>
     <ul class="nav__links" role="list">
       {navLinks.map((link) => (
@@ -25,9 +23,6 @@ const navLinks = [
           <a href={link.href} class="nav__link">{link.label}</a>
         </li>
       ))}
-      <li>
-        <a href="https://alexandrasofiacohen.com" class="nav__back-home">← Volver al Inicio</a>
-      </li>
     </ul>
   </div>
 </nav>
@@ -59,44 +54,20 @@ const navLinks = [
     gap: 2rem;
   }
 
-  .nav__logo {
+  .nav__left {
     display: flex;
     align-items: center;
-    gap: 0;
-    text-decoration: none;
-    white-space: nowrap;
-    line-height: 1;
-    margin-left: -1.5rem;
+    gap: 12px;
+  }
+
+  .nav__logo-link {
+    display: flex;
+    align-items: center;
   }
 
   .nav__logo-mark {
-    display: block;
-    flex-shrink: 0;
-    width: 105px;
-    height: 105px;
-    margin-block: -11px;
-    margin-top: 8px;
-    filter: drop-shadow(0 2px 4px rgba(30, 58, 40, 0.15));
-    transition: transform 0.2s;
-  }
-
-  .nav__logo:hover .nav__logo-mark {
-    transform: rotate(-5deg) scale(1.05);
-  }
-
-  .nav__logo-text {
-    font-family: var(--font-display);
-    font-size: 0.95rem;
-    font-weight: 700;
-    color: var(--color-text);
-    line-height: 1;
-    display: flex;
-    align-items: center;
-    margin-left: -32px;
-  }
-
-  .nav__logo-accent {
-    color: var(--color-accent);
+    height: 40px;
+    width: 40px;
   }
 
   .nav__links {
