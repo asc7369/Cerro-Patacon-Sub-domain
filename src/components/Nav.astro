@@ -11,12 +11,14 @@ const navLinks = [
 
 <nav class="nav" aria-label="Main navigation">
   <div class="container nav__inner">
-    <a href="https://alexandrasofiacohen.com" class="nav__logo">
-      <img src="/images/LOGOALEXANDRACOHEN.svg" alt="Alexandra Cohen" class="nav__logo-mark" width="55" height="55" />
-      <span class="nav__logo-text">
+    <div class="nav__logo">
+      <a href="https://alexandrasofiacohen.com">
+        <img src="/images/LOGOALEXANDRACOHEN.svg" alt="Alexandra Cohen" class="nav__logo-mark" width="55" height="55" />
+      </a>
+      <a href="/" class="nav__logo-text">
         <span class="nav__logo-accent">Cerro</span> Patacón
-      </span>
-    </a>
+      </a>
+    </div>
     <ul class="nav__links" role="list">
       {navLinks.map((link) => (
         <li>
