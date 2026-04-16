@@ -24,6 +24,20 @@ const navLinks = [
         </li>
       ))}
     </ul>
+    <button class="nav__hamburger" id="cp-hamburger" aria-label="Menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+  <div class="nav__mobile-menu" id="cp-mobile-menu">
+    <ul class="nav__mobile-links" role="list">
+      {navLinks.map((link) => (
+        <li>
+          <a href={link.href} class="nav__mobile-link">{link.label}</a>
+        </li>
+      ))}
+    </ul>
   </div>
 </nav>
 
@@ -45,9 +59,6 @@ const navLinks = [
 
   .nav__inner {
     height: 100%;
-  }
-
-  .nav__inner {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -75,7 +86,6 @@ const navLinks = [
     align-items: center;
     gap: 1.25rem;
     list-style: none;
-    overflow-x: auto;
   }
 
   .nav__link {
@@ -125,9 +135,65 @@ const navLinks = [
     transform: translateY(-100%);
   }
 
-  @media (max-width: 600px) {
-    .nav__links { gap: 0.9rem; }
-    .nav__link  { font-size: 0.75rem; }
+  /* Hamburger */
+  .nav__hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+  }
+  .nav__hamburger span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--color-text);
+    transition: transform 0.3s, opacity 0.3s;
+  }
+  .nav__hamburger.open span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+  .nav__hamburger.open span:nth-child(2) {
+    opacity: 0;
+  }
+  .nav__hamburger.open span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
+  /* Mobile menu */
+  .nav__mobile-menu {
+    display: none;
+    padding: 16px 24px 20px;
+    border-top: 1px solid var(--color-border);
+    background: rgba(255, 255, 255, 0.98);
+  }
+  .nav__mobile-menu.open {
+    display: block;
+  }
+  .nav__mobile-links {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .nav__mobile-link {
+    text-decoration: none;
+    color: var(--color-text);
+    font-size: 1rem;
+    font-weight: 500;
+    transition: color 0.2s;
+  }
+  .nav__mobile-link:hover {
+    color: var(--color-accent-2);
+  }
+
+  @media (max-width: 768px) {
+    .nav__links { display: none; }
+    .nav__hamburger { display: flex; }
+    .nav__back-home { font-size: 0.8rem; }
+    .nav__logo-mark { height: 32px; width: 32px; }
   }
 </style>
 
@@ -144,5 +210,17 @@ const navLinks = [
     }
     lastY = currentY;
   });
-</script>
 
+  const cpHamburger = document.getElementById('cp-hamburger');
+  const cpMobileMenu = document.getElementById('cp-mobile-menu');
+  cpHamburger?.addEventListener('click', () => {
+    cpHamburger.classList.toggle('open');
+    cpMobileMenu?.classList.toggle('open');
+  });
+  document.querySelectorAll('.nav__mobile-link').forEach(link => {
+    link.addEventListener('click', () => {
+      cpHamburger?.classList.remove('open');
+      cpMobileMenu?.classList.remove('open');
+    });
+  });
+</script>
