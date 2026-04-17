@@ -1,11 +1,11 @@
 ---
 const navLinks = [
-  { label: "¿Qué es?",    href: "#relleno"    },
-  { label: "Ambiente",    href: "#ambiental"  },
-  { label: "Comunidades", href: "#comunitario"},
-  { label: "Actualidad",  href: "#pasando"    },
-  { label: "Planes",      href: "#prevencion" },
-  { label: "Acción",      href: "#accion"     },
+  { label: "¿Qué es?",    labelEn: "What is it?",    href: "#relleno"    },
+  { label: "Ambiente",    labelEn: "Environment",    href: "#ambiental"  },
+  { label: "Comunidades", labelEn: "Communities",    href: "#comunitario"},
+  { label: "Actualidad",  labelEn: "Current Status", href: "#pasando"    },
+  { label: "Planes",      labelEn: "Plans",          href: "#prevencion" },
+  { label: "Acción",      labelEn: "Action",         href: "#accion"     },
 ];
 ---
 
@@ -15,15 +15,19 @@ const navLinks = [
       <a href="https://alexandrasofiacohen.com" class="nav__logo-link">
         <img src="/images/logo-favicon.svg" alt="Alexandra Cohen" class="nav__logo-mark" />
       </a>
-      <a href="https://alexandrasofiacohen.com" class="nav__back-home">← Volver al Inicio</a>
+      <a href="https://alexandrasofiacohen.com" class="nav__back-home" data-en="← Back to Home" data-es="← Volver al Inicio">← Volver al Inicio</a>
     </div>
     <ul class="nav__links" role="list">
       {navLinks.map((link) => (
         <li>
-          <a href={link.href} class="nav__link">{link.label}</a>
+          <a href={link.href} class="nav__link" data-en={link.labelEn} data-es={link.label}>{link.label}</a>
         </li>
       ))}
     </ul>
+    <div class="lang-toggle">
+      <button class="lang-btn" onclick="switchLang('en')">EN</button>
+      <button class="lang-btn active" onclick="switchLang('es')">ES</button>
+    </div>
     <button class="nav__hamburger" id="cp-hamburger" aria-label="Menu">
       <span></span>
       <span></span>
@@ -34,10 +38,14 @@ const navLinks = [
     <ul class="nav__mobile-links" role="list">
       {navLinks.map((link) => (
         <li>
-          <a href={link.href} class="nav__mobile-link">{link.label}</a>
+          <a href={link.href} class="nav__mobile-link" data-en={link.labelEn} data-es={link.label}>{link.label}</a>
         </li>
       ))}
     </ul>
+    <div class="lang-toggle mobile-lang">
+      <button class="lang-btn" onclick="switchLang('en')">EN</button>
+      <button class="lang-btn active" onclick="switchLang('es')">ES</button>
+    </div>
   </div>
 </nav>
 
@@ -119,6 +127,33 @@ const navLinks = [
     width: 100%;
   }
 
+  .lang-toggle {
+    display: flex;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 50px;
+    overflow: hidden;
+  }
+
+  .lang-btn {
+    padding: 6px 14px;
+    border: none;
+    background: transparent;
+    font-family: inherit;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--color-muted);
+    cursor: pointer;
+    transition: all 0.25s;
+    letter-spacing: 0.04em;
+  }
+
+  .lang-btn.active {
+    background: var(--color-accent);
+    color: #fff;
+    border-radius: 50px;
+  }
+
   .nav__back-home {
     color: var(--color-muted);
     font-size: 0.85rem;
@@ -189,7 +224,13 @@ const navLinks = [
     color: var(--color-accent-2);
   }
 
+  .mobile-lang {
+    display: inline-flex;
+    margin-top: 14px;
+  }
+
   @media (max-width: 768px) {
+    .lang-toggle:not(.mobile-lang) { display: none; }
     .nav__links { display: none; }
     .nav__hamburger { display: flex; }
     .nav__back-home { font-size: 0.8rem; }

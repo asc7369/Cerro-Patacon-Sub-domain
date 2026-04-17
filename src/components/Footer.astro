@@ -13,7 +13,7 @@ const year = new Date().getFullYear();
     <div class="footer__meta">
       <div class="footer__author">
         <img src="/images/LOGOALEXANDRACOHEN.svg" alt="Alexandra Cohen" class="footer__author-logo" width="120" height="120" />
-        <p class="footer__credit">
+        <p class="footer__credit" data-en="Research, writing, and website development by <strong>Alexandra Cohen</strong> · {year}" data-es="Investigación, redacción y construcción de página web por <strong>Alexandra Cohen</strong> · {year}">
           Investigación, redacción y construcción de página web por <strong>Alexandra Cohen</strong> · {year}
         </p>
       </div>
@@ -22,7 +22,7 @@ const year = new Date().getFullYear();
 
   <div class="footer__bar">
     <div class="container">
-      <p>© {year} · Solo para uso académico</p>
+      <p data-en={`© ${year} · For academic use only`} data-es={`© ${year} · Solo para uso académico`}>© {year} · Solo para uso académico</p>
     </div>
   </div>
 </footer>

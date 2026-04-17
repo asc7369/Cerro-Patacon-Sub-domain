@@ -8,7 +8,7 @@ const heroImage = "/images/hero.jpg";
   <!-- Background image layer — swap src in /public/images/ -->
   <div class="hero__bg" aria-hidden="true">
     <div class="hero__placeholder-bg"></div>
-    <img src={heroImage} alt="Vista aérea del relleno sanitario Cerro Patacón, Ciudad de Panamá" class="hero__img" />
+    <img src={heroImage} alt="Vista aérea del relleno sanitario Cerro Patacón, Ciudad de Panamá" data-en="Aerial view of Cerro Patacón sanitary landfill, Panama City" data-es="Vista aérea del relleno sanitario Cerro Patacón, Ciudad de Panamá" class="hero__img" />
     <!-- Organic blob decorations on top of the photo -->
     <div class="hero__blob hero__blob--1"></div>
     <div class="hero__blob hero__blob--2"></div>
@@ -22,30 +22,30 @@ const heroImage = "/images/hero.jpg";
     </svg>
   </div>
 
-  <p class="hero__photo-credit">Foto: MiAmbiente Panamá</p>
+  <p class="hero__photo-credit" data-en="Photo: MiAmbiente Panama" data-es="Foto: MiAmbiente Panamá">Foto: MiAmbiente Panamá</p>
 
   <div class="container hero__content">
 
-    <h1 class="hero__title">
+    <h1 class="hero__title" data-en="Cerro Patacón: <br /><em>Understanding the problem to build the solution</em>" data-es="Cerro Patacón: <br /><em>Entendiendo el problema para construir la solución</em>">
       Cerro Patacón: <br />
       <em>Entendiendo el problema para construir la solución</em>
     </h1>
 
-    <p class="hero__byline">por Alexandra Cohen</p>
+    <p class="hero__byline" data-en="by Alexandra Cohen" data-es="por Alexandra Cohen">por Alexandra Cohen</p>
 
-    <p class="hero__subtitle">
+    <p class="hero__subtitle" data-en="Cerro Patacón is both the symptom of a problem and the starting point for its solution. People live here, an ecosystem functions here, and within it rests an urgent question: how does a city manage what it consumes and discards?" data-es="Cerro Patacón es, a la vez, el síntoma de un problema y el punto de partida de su solución. Aquí viven personas, funciona un ecosistema, y en él descansa una pregunta urgente: ¿cómo maneja una ciudad lo que consume y desecha?">
       Cerro Patacón es, a la vez, el síntoma de un problema y el punto de partida de su solución.
       Aquí viven personas, funciona un ecosistema, y en él descansa una pregunta urgente:
       ¿cómo maneja una ciudad lo que consume y desecha?
     </p>
 
     <div class="hero__cta-group">
-      <a href="#relleno" class="btn btn--primary">Leer la historia</a>
-      <a href="#stats" class="btn btn--ghost">Ver los datos</a>
+      <a href="#relleno" class="btn btn--primary" data-en="Read the story" data-es="Leer la historia">Leer la historia</a>
+      <a href="#stats" class="btn btn--ghost" data-en="See the data" data-es="Ver los datos">Ver los datos</a>
     </div>
 
     <div class="hero__scroll-hint" aria-hidden="true">
-      <span>Explorar</span>
+      <span data-en="Explore" data-es="Explorar">Explorar</span>
       <svg width="16" height="24" viewBox="0 0 16 24" fill="none">
         <rect x="1" y="1" width="14" height="22" rx="7" stroke="currentColor" stroke-width="1.5"/>
         <circle class="scroll-dot" cx="8" cy="7" r="2.5" fill="currentColor"/>

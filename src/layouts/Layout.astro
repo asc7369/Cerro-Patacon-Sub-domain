@@ -27,6 +27,29 @@ const {
   </head>
   <body>
     <slot />
+
+    <script>
+      let currentLang = 'es';
+
+      function switchLang(lang: string) {
+        currentLang = lang;
+        document.documentElement.lang = lang;
+
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+          btn.classList.toggle('active', btn.textContent === lang.toUpperCase());
+        });
+
+        document.querySelectorAll(`[data-${lang}]`).forEach(el => {
+          const text = el.getAttribute(`data-${lang}`);
+          if (text && el.tagName !== 'INPUT' && el.tagName !== 'TEXTAREA') {
+            el.innerHTML = text;
+          }
+        });
+      }
+
+      // Make switchLang available globally for onclick handlers
+      (window as any).switchLang = switchLang;
+    </script>
   </body>
 </html>
 
