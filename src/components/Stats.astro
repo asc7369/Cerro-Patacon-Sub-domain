@@ -193,10 +193,16 @@ const stats = [
 
   /* ── Stat cards ── */
   .stats__grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 1rem;
     margin-bottom: clamp(3rem, 6vw, 5rem);
+  }
+
+  .stats__grid .stat-card {
+    flex: 0 1 calc(33.333% - 0.75rem);
+    min-width: 240px;
   }
 
   .stat-card {
