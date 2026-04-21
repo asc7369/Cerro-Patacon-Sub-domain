@@ -29,10 +29,11 @@ const {
     <slot />
 
     <script>
-      let currentLang = 'es';
+      let currentLang = localStorage.getItem('siteLang') || 'es';
 
       function switchLang(lang: string) {
         currentLang = lang;
+        localStorage.setItem('siteLang', lang);
         document.documentElement.lang = lang;
 
         document.querySelectorAll('.lang-btn').forEach(btn => {
@@ -49,6 +50,9 @@ const {
 
       // Make switchLang available globally for onclick handlers
       (window as any).switchLang = switchLang;
+
+      // Apply saved language on load
+      if (currentLang !== 'es') switchLang(currentLang);
     </script>
   </body>
 </html>
