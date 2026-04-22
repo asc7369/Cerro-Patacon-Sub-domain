@@ -41,7 +41,7 @@ const {
 
         document.querySelectorAll(`[data-${lang}]`).forEach(el => {
           const text = el.getAttribute(`data-${lang}`);
-          if (text && el.tagName !== 'INPUT' && el.tagName !== 'TEXTAREA') {
+          if (text && el.tagName !== 'INPUT' && el.tagName !== 'TEXTAREA' && !el.classList.contains('lang-btn')) {
             el.innerHTML = text;
           }
         });
