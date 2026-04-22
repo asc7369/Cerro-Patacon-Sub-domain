@@ -241,7 +241,11 @@ const sections = [
               <p class="topic__body" data-en={s.body} data-es={s.bodyEs} set:html={s.bodyEs} />
               {s.extra && <p class="topic__body" data-en={s.extra} data-es={s.extraEs} set:html={s.extraEs} />}
               {s.extra2 && <p class="topic__body" data-en={s.extra2} data-es={s.extra2Es} set:html={s.extra2Es} />}
-              {s.extra3 && <p class="topic__body" data-en={s.extra3} data-es={s.extra3Es} set:html={s.extra3Es} />}
+              {s.extra3 && s.id === "prevencion" ? (
+                <div class="topic__callout-box">
+                  <p class="topic__body" data-en={s.extra3} data-es={s.extra3Es} set:html={s.extra3Es} />
+                </div>
+              ) : s.extra3 && <p class="topic__body" data-en={s.extra3} data-es={s.extra3Es} set:html={s.extra3Es} />}
 
               {s.id === "relleno" && s.sources && (
                 <div class="topic__sources">
@@ -473,6 +477,20 @@ const sections = [
     opacity: 0.75;
     line-height: 1.6;
     max-width: 68ch;
+  }
+
+  /* ── Callout box (prevencion REP paragraph) ── */
+  .topic__callout-box {
+    background: var(--color-surface);
+    border: 1.5px solid var(--color-border);
+    border-left: 4px solid var(--color-accent);
+    border-radius: 10px;
+    padding: 1.5rem 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .topic__callout-box .topic__body {
+    margin-bottom: 0;
   }
 
   /* ── Full-width photo (pasando section) ── */
